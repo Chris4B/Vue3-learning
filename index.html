@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+        <div id="app">
+            <p>
+                <input type="text" v-model="greeting">
+            </p>
+            <p>
+                {{greeting}} {{(greeting.length)}}
+            </p>
+                
+        </div>
+    
+
+
+    <script>
+        // Options API structured vue component : vue1
+
+        // vue instance
+        Vue.createApp({
+
+            //function data returns a plain js Object that can be accessed with this.$data
+            data(){
+                return{
+                    greeting:'hello Wold'
+                };   
+               
+            }, 
+
+            //this is one one the three most used hooks(mounted, updated, unmounted). it runs the code after the component has finished initial rendering and create the DOM nodes.
+            mounted(){
+                setTimeout(()=>{
+                    this.greeting ="changed"
+                },3000);
+            }
+
+
+        }).mount('#app');
+    </script>
+</body>
+</html>
